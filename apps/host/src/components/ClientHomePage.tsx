@@ -114,9 +114,10 @@ export default function ClientHomePage() {
     <CartProvider>
       <div className="container">
         <header className="header">
-          <h1>🕷️ Spider-Man Store</h1>
+          <h1 data-testid="app-title">🕷️ Spider-Man Store</h1>
           <div style={{ display: 'flex', gap: '10px' }}>
             <button 
+              data-testid="track-page-view-btn"
               onClick={handleTrackPageView}
               style={{
                 padding: '8px 16px',
@@ -134,6 +135,7 @@ export default function ClientHomePage() {
               Track Page View
             </button>
             <button 
+              data-testid="show-analytics-btn"
               onClick={handleShowAnalytics}
               style={{
                 padding: '8px 16px',

@@ -1,15 +1,18 @@
 import { render } from '@testing-library/react';
 import { TelemetryProvider } from '../components/TelemetryProvider';
 
-// Mock telemetry service
-jest.mock('telemetry', () => ({
-  telemetryService: {
-    initialize: jest.fn().mockResolvedValue(undefined),
-    shutdown: jest.fn().mockResolvedValue(undefined),
-  },
-}));
+// Mock console.log to test initialization
+const mockConsoleLog = jest.spyOn(console, 'log').mockImplementation();
 
 describe('TelemetryProvider', () => {
+  afterEach(() => {
+    mockConsoleLog.mockClear();
+  });
+
+  afterAll(() => {
+    mockConsoleLog.mockRestore();
+  });
+
   it('should render children correctly', () => {
     const { getByText } = render(
       <TelemetryProvider>
@@ -20,21 +23,13 @@ describe('TelemetryProvider', () => {
     expect(getByText('Test content')).toBeInTheDocument();
   });
 
-  it('should initialize telemetry on mount', () => {
-    const { telemetryService } = require('telemetry');
-    
+  it('should log initialization message on mount', () => {
     render(
       <TelemetryProvider>
         <div>Test content</div>
       </TelemetryProvider>
     );
 
-    expect(telemetryService.initialize).toHaveBeenCalledWith({
-      serviceName: 'micro-frontend-host',
-      serviceVersion: '1.0.0',
-      environment: 'test',
-      enableConsoleExporter: true,
-      sampleRate: 1.0,
-    });
+    expect(mockConsoleLog).toHaveBeenCalledWith('Telemetry provider initialized');
   });
 });

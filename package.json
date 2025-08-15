@@ -10,10 +10,13 @@
     "type-check": "pnpm -r type-check"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.14.5",
     "@testing-library/jest-dom": "^6.7.0",
     "@testing-library/react": "^14.3.1",
     "@types/jest": "^29.5.14",
     "concurrently": "^8.2.2",
+    "cypress": "^14.5.4",
+    "cypress-real-events": "^1.14.0",
     "jsdom": "^26.1.0",
     "ts-jest": "^29.4.1",
     "typescript": "^5.3.3"

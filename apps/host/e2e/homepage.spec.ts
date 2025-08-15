@@ -5,7 +5,7 @@ test.describe('Homepage', () => {
     await page.goto('/');
 
     // Check if the host app loads
-    await expect(page.getByText('Micro Frontend Store')).toBeVisible();
+    await expect(page.getByText('🕷️ Spider-Man Store')).toBeVisible();
     
     // Check if products section is visible
     await expect(page.getByText('Products')).toBeVisible();
@@ -40,7 +40,7 @@ test.describe('Homepage', () => {
     await page.goto('/');
 
     // Should still show the host app
-    await expect(page.getByText('Micro Frontend Store')).toBeVisible();
+    await expect(page.getByText('🕷️ Spider-Man Store')).toBeVisible();
     
     // Should show loading states for failed remotes
     await expect(page.getByText('Loading products...')).toBeVisible();

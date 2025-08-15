@@ -65,12 +65,13 @@ export class HttpClient {
       });
 
       try {
-        const response: AxiosResponse<T> = await this.axiosInstance({
+        const response: AxiosResponse<T> = await this.axiosInstance.request({
           url: config.url,
           method: config.method,
           data: config.data,
           headers: config.headers,
           timeout: config.timeout,
+          params: config.params,
         });
 
         const duration = Date.now() - startTime;
@@ -98,6 +99,8 @@ export class HttpClient {
           statusText: response.statusText,
           headers: response.headers as Record<string, string>,
           metrics: globalMetricsCollector.getMetrics(metrics.requestId)!,
+          duration,
+          success: true,
         };
       } catch (error: any) {
         const statusCode = error.response?.status;
@@ -129,6 +132,7 @@ export class HttpClient {
           data: error.response?.data,
           metrics: globalMetricsCollector.getMetrics(metrics.requestId)!,
           isRetryable: isRetryableError(error, retryConfig),
+          success: false,
         };
 
         throw httpError;

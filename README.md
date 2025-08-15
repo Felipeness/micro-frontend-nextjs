@@ -301,6 +301,24 @@ micro-frontend-nextjs/
 
 ## 🧪 Testing
 
+### Test Coverage Report
+
+| Package/App | Statements | Branches | Functions | Lines | Status |
+|------------|------------|----------|-----------|-------|--------|
+| **host** | 96.36% | 87.5% | 84.61% | 98.03% | ✅ Excellent |
+| **http-client** | 93.28% | 96.96% | 80% | 96.09% | ✅ Excellent |
+| **remote-products** | 78.57% | 85.71% | 84.61% | 78.57% | ✅ Good |
+| **remote-cart** | 53.44% | 44.82% | 57.89% | 51.78% | ⚠️ Needs Improvement |
+
+#### Components with 100% Coverage:
+- ✅ **Analytics Library** - Complete tracking and session management
+- ✅ **Metrics Library** - RED metrics and performance monitoring
+- ✅ **Retry Utilities** - Exponential backoff and jitter implementation
+- ✅ **TelemetryProvider** - OpenTelemetry integration
+- ✅ **CartContext** - Shopping cart state management
+- ✅ **ProductCard** - Product display component
+- ✅ **ProductList** - Product catalog component
+
 ### Unit Tests
 ```bash
 # Run all unit tests
@@ -314,6 +332,18 @@ pnpm test:coverage
 
 # Test specific package
 pnpm --filter http-client test
+```
+
+### E2E Tests (Cypress)
+```bash
+# Run Cypress tests headlessly
+pnpm cypress run
+
+# Open Cypress Test Runner
+pnpm cypress open
+
+# Run specific test file
+pnpm cypress run --spec "cypress/e2e/spider-man-store.cy.ts"
 ```
 
 ### Integration Tests
@@ -331,7 +361,14 @@ pnpm test:e2e --project=chromium
 ### Test Structure
 - **Unit Tests**: Located in `__tests__` folders within each package
 - **Integration Tests**: Located in `e2e` folders within applications
+- **Cypress Tests**: Located in `cypress/e2e` folder
 - **Test Utilities**: Shared test helpers and mocks
+
+### Test Statistics
+- **Total Tests**: 144+ unit tests
+- **E2E Tests**: 15 Cypress scenarios
+- **Coverage Goal**: 85% minimum for critical paths
+- **Test Execution Time**: ~3 seconds for all unit tests
 
 ## 📋 Development Guidelines
 

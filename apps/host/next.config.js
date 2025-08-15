@@ -1,0 +1,34 @@
+const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  webpack(config, options) {
+    config.plugins.push(
+      new NextFederationPlugin({
+        name: 'host',
+        remotes: {
+          'remote-products': `remote-products@http://localhost:3001/_next/static/chunks/remoteEntry.js`,
+          'remote-cart': `remote-cart@http://localhost:3002/_next/static/chunks/remoteEntry.js`,
+        },
+        filename: 'static/chunks/remoteEntry.js',
+        shared: {
+          react: { 
+            singleton: true, 
+            eager: true, 
+            requiredVersion: false 
+          },
+          'react-dom': { 
+            singleton: true, 
+            eager: true, 
+            requiredVersion: false 
+          },
+        },
+      })
+    );
+
+    return config;
+  },
+  transpilePackages: ['http-client'],
+};
+
+module.exports = nextConfig;

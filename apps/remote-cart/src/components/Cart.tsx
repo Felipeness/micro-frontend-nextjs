@@ -82,32 +82,38 @@ export default function Cart() {
       ) : (
         <>
           {items.map((item) => (
-            <div key={item.id} style={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              alignItems: 'center',
-              padding: '12px 0',
-              borderBottom: '1px solid #f0f0f0',
-              transition: 'background-color 0.2s'
-            }}>
+            <div 
+              key={item.id} 
+              data-testid="cart-item"
+              style={{ 
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                alignItems: 'center',
+                padding: '12px 0',
+                borderBottom: '1px solid #f0f0f0',
+                transition: 'background-color 0.2s'
+              }}>
               <div>
                 <div style={{ fontWeight: 'bold', color: '#333', fontSize: '14px' }}>{item.name}</div>
                 <div style={{ color: '#666', fontSize: '12px' }}>R$ {item.price.toFixed(2)} each</div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CartButton
+                  data-testid="decrease-quantity-btn"
                   onClick={() => updateQuantity(item.id, item.quantity - 1)}
                   disabled={item.quantity <= 1}
                 >
                   -
                 </CartButton>
-                <span>{item.quantity}</span>
+                <span data-testid="item-quantity">{item.quantity}</span>
                 <CartButton
+                  data-testid="increase-quantity-btn"
                   onClick={() => updateQuantity(item.id, item.quantity + 1)}
                 >
                   +
                 </CartButton>
                 <CartButton
+                  data-testid="remove-item-btn"
                   onClick={() => removeItem(item.id)}
                   variant="danger"
                 >
@@ -117,21 +123,24 @@ export default function Cart() {
             </div>
           ))}
           
-          <div style={{ 
-            marginTop: '20px', 
-            fontSize: '20px', 
-            fontWeight: 'bold', 
-            color: '#e74c3c',
-            textAlign: 'center',
-            padding: '16px',
-            backgroundColor: '#f8f9fa',
-            borderRadius: '8px',
-            border: '2px solid #e9ecef'
-          }}>
+          <div 
+            data-testid="cart-total"
+            style={{ 
+              marginTop: '20px', 
+              fontSize: '20px', 
+              fontWeight: 'bold', 
+              color: '#e74c3c',
+              textAlign: 'center',
+              padding: '16px',
+              backgroundColor: '#f8f9fa',
+              borderRadius: '8px',
+              border: '2px solid #e9ecef'
+            }}>
             Total: R$ {total.toFixed(2)}
           </div>
           
           <CartButton
+            data-testid="checkout-btn"
             onClick={() => {
               // Show checkout notification
               const notification = document.createElement('div');

@@ -7,11 +7,11 @@ test.describe('Homepage', () => {
     // Check if the host app loads
     await expect(page.getByText('🕷️ Spider-Man Store')).toBeVisible();
     
-    // Check if products section is visible
-    await expect(page.getByText('Products')).toBeVisible();
+    // Check if products section is visible (using heading role)
+    await expect(page.getByRole('heading', { name: 'Products' })).toBeVisible();
     
-    // Check if cart section is visible  
-    await expect(page.getByText('Shopping Cart')).toBeVisible();
+    // Check if cart section is visible (using heading role)
+    await expect(page.getByRole('heading', { name: 'Shopping Cart' })).toBeVisible();
     
     // Wait for remote components to load
     await expect(page.getByText('Loading products...')).toBeVisible();

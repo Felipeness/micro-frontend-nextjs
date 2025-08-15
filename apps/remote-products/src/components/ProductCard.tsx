@@ -51,23 +51,26 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div style={{
-      border: '1px solid #e0e0e0',
-      borderRadius: '12px',
-      padding: '16px',
-      backgroundColor: 'white',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-      transition: 'transform 0.2s, box-shadow 0.2s',
-      cursor: 'pointer',
-    }}
-    onMouseOver={(e) => {
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)';
-    }}
-    onMouseOut={(e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-    }}
+    <div 
+      data-testid="product-card"
+      className="product-card"
+      style={{
+        border: '1px solid #e0e0e0',
+        borderRadius: '12px',
+        padding: '16px',
+        backgroundColor: 'white',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+        cursor: 'pointer',
+      }}
+      onMouseOver={(e) => {
+        e.currentTarget.style.transform = 'translateY(-4px)';
+        e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.15)';
+      }}
+      onMouseOut={(e) => {
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+      }}
     >
       <img 
         src={product.image} 
@@ -79,6 +82,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         R$ {product.price.toFixed(2)}
       </p>
       <button
+        data-testid="add-to-cart-btn"
         onClick={handleAddToCart}
         style={{
           width: '100%',

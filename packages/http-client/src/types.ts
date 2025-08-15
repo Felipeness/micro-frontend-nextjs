@@ -13,6 +13,7 @@ export interface RequestConfig {
   method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
   data?: any;
   headers?: Record<string, string>;
+  params?: Record<string, any>;
   timeout?: number;
   retryConfig?: Partial<RetryConfig>;
   idempotencyKey?: string;
@@ -38,6 +39,8 @@ export interface HttpResponse<T = any> {
   statusText: string;
   headers: Record<string, string>;
   metrics: RequestMetrics;
+  duration: number;
+  success: boolean;
 }
 
 export interface HttpError extends Error {
@@ -46,4 +49,5 @@ export interface HttpError extends Error {
   data?: any;
   metrics: RequestMetrics;
   isRetryable: boolean;
+  success: boolean;
 }

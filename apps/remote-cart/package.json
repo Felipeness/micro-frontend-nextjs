@@ -29,6 +29,6 @@
     "@testing-library/react": "^14.1.2",
     "@testing-library/jest-dom": "^6.1.5",
     "jest-environment-jsdom": "^29.7.0",
-    "@module-federation/nextjs-mf": "^8.1.14"
+    "@module-federation/nextjs-mf": "^8.8.0"
   }
 }

@@ -32,5 +32,10 @@
     "@testing-library/jest-dom": "^6.1.5",
     "jest-environment-jsdom": "^29.7.0",
     "@module-federation/nextjs-mf": "^8.1.14"
-  }
+  },
+  "main": "jest.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

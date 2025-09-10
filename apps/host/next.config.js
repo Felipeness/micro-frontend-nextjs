@@ -1,4 +1,4 @@
-const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
+const NextFederationPlugin = require('@module-federation/nextjs-mf');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,33 +12,30 @@ const nextConfig = {
     config.plugins.push(
       new NextFederationPlugin({
         name: 'host',
-        remotes: {
-          'remote-products': process.env.NODE_ENV === 'production' 
-            ? `remote-products@https://remote-products-1rmf4abt4-felipeness-projects.vercel.app/_next/static/chunks/remoteEntry.js`
-            : `remote-products@http://localhost:3001/_next/static/chunks/remoteEntry.js`,
-          'remote-cart': process.env.NODE_ENV === 'production'
-            ? `remote-cart@https://remote-cart-4g2tgzlhd-felipeness-projects.vercel.app/_next/static/chunks/remoteEntry.js`
-            : `remote-cart@http://localhost:3002/_next/static/chunks/remoteEntry.js`,
-        },
         filename: 'static/chunks/remoteEntry.js',
+        remotes: {
+          remote_products: process.env.NODE_ENV === 'production' 
+            ? `remote_products@https://remote-products.vercel.app/_next/static/${options.isServer ? 'ssr' : 'chunks'}/remoteEntry.js`
+            : `remote_products@http://localhost:3001/_next/static/${options.isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
+          remote_cart: process.env.NODE_ENV === 'production'
+            ? `remote_cart@https://remote-cart.vercel.app/_next/static/${options.isServer ? 'ssr' : 'chunks'}/remoteEntry.js`
+            : `remote_cart@http://localhost:3002/_next/static/${options.isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
+        },
         shared: {
           react: { 
             singleton: true, 
-            eager: true, 
             requiredVersion: false 
           },
           'react-dom': { 
             singleton: true, 
-            eager: true, 
             requiredVersion: false 
           },
         },
       })
     );
-
+    
     return config;
   },
-  transpilePackages: ['http-client'],
 };
 
 module.exports = nextConfig;

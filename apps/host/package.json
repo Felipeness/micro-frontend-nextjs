@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3000",
-    "build": "next build",
+    "build": "NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
     "start": "next start -p 3000",
     "lint": "next lint",
     "test": "jest",
@@ -16,15 +16,7 @@
     "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@opentelemetry/api": "^1.7.0",
-    "@opentelemetry/auto-instrumentations-web": "^0.34.0",
-    "@opentelemetry/context-zone": "^1.17.0",
-    "@opentelemetry/instrumentation": "^0.45.0",
-    "@opentelemetry/instrumentation-fetch": "^0.45.0",
-    "@opentelemetry/sdk-trace-web": "^1.17.0",
-    "axios": "^1.6.2",
-    "http-client": "workspace:*",
-    "telemetry": "workspace:*"
+    "axios": "^1.6.2"
   },
   "devDependencies": {
     "@types/node": "^20.10.4",
@@ -40,6 +32,6 @@
     "@testing-library/jest-dom": "^6.1.5",
     "jest-environment-jsdom": "^29.7.0",
     "@playwright/test": "^1.40.1",
-    "@module-federation/nextjs-mf": "^8.1.14"
+    "@module-federation/nextjs-mf": "^8.8.0"
   }
 }

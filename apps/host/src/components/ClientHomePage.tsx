@@ -3,12 +3,12 @@ import dynamic from 'next/dynamic';
 import { analytics } from '../lib/analytics';
 import { CartProvider } from '../context/CartContext';
 
-const ProductList = dynamic(() => import('remote-products/ProductList'), {
+const ProductList = dynamic(() => import('remote_products/ProductList').catch(() => ({ default: () => <div>Products service unavailable</div> })), {
   ssr: false,
   loading: () => <div>Loading products...</div>
 });
 
-const Cart = dynamic(() => import('remote-cart/Cart'), {
+const Cart = dynamic(() => import('remote_cart/Cart').catch(() => ({ default: () => <div>Cart service unavailable</div> })), {
   ssr: false,
   loading: () => <div>Loading cart...</div>
 });

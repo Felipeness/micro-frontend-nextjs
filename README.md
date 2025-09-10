@@ -10,12 +10,12 @@
 
 ## 🌟 Demo & Live Preview
 
-**Live Demo**: [🕷️ Spider-Man Store](https://host-anbisk6ml-felipeness-projects.vercel.app) *(Micro Frontend in Action)*
+**Live Demo**: [🕷️ Spider-Man Store](https://host-taupe.vercel.app) *(Micro Frontend in Action)*
 
 **Individual Micro Frontends**:
-- **Products Service**: [Products Catalog](https://remote-products-1rmf4abt4-felipeness-projects.vercel.app)
-- **Cart Service**: [Shopping Cart](https://remote-cart-k47eshx2s-felipeness-projects.vercel.app)
-- **Host Application**: [Complete Store](https://host-anbisk6ml-felipeness-projects.vercel.app)
+- **Products Service**: [Products Catalog](https://remote-products.vercel.app)
+- **Cart Service**: [Shopping Cart](https://remote-cart.vercel.app)
+- **Host Application**: [Complete Store](https://host-taupe.vercel.app)
 
 ### Quick Demo in 30 seconds:
 1. **Browse Products**: View Spider-Man themed items with pricing

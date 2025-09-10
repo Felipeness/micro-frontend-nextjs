@@ -13,8 +13,12 @@ const nextConfig = {
       new NextFederationPlugin({
         name: 'host',
         remotes: {
-          'remote-products': `remote-products@http://localhost:3001/_next/static/chunks/remoteEntry.js`,
-          'remote-cart': `remote-cart@http://localhost:3002/_next/static/chunks/remoteEntry.js`,
+          'remote-products': process.env.NODE_ENV === 'production' 
+            ? `remote-products@https://remote-products-felipeness-projects.vercel.app/_next/static/chunks/remoteEntry.js`
+            : `remote-products@http://localhost:3001/_next/static/chunks/remoteEntry.js`,
+          'remote-cart': process.env.NODE_ENV === 'production'
+            ? `remote-cart@https://remote-cart-felipeness-projects.vercel.app/_next/static/chunks/remoteEntry.js`
+            : `remote-cart@http://localhost:3002/_next/static/chunks/remoteEntry.js`,
         },
         filename: 'static/chunks/remoteEntry.js',
         shared: {

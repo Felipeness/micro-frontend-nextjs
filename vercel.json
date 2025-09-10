@@ -1,0 +1,6 @@
+{
+  "installCommand": "cd ../.. && pnpm install",
+  "buildCommand": "cd ../.. && NEXT_PRIVATE_LOCAL_WEBPACK=true pnpm --filter remote-products build",
+  "devCommand": "NEXT_PRIVATE_LOCAL_WEBPACK=true pnpm dev",
+  "framework": "nextjs"
+}

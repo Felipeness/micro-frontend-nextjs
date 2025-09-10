@@ -2,6 +2,9 @@ const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({

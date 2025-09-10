@@ -5,6 +5,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({

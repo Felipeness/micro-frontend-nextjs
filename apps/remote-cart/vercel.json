@@ -1,0 +1,6 @@
+{
+  "installCommand": "cd ../.. && pnpm install && pnpm --filter http-client build && pnpm --filter telemetry build",
+  "buildCommand": "cd ../.. && NEXT_PRIVATE_LOCAL_WEBPACK=true pnpm --filter remote-cart build",
+  "devCommand": "NEXT_PRIVATE_LOCAL_WEBPACK=true pnpm dev",
+  "framework": "nextjs"
+}

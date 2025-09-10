@@ -98,7 +98,7 @@ describe('ProductList', () => {
 
   describe('State Management', () => {
     it('should update products state after timeout', async () => {
-      const { rerender } = render(<ProductList />);
+      render(<ProductList />);
       
       // Initially no products
       expect(screen.queryByTestId('product-card-1')).not.toBeInTheDocument();
